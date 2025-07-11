@@ -1,121 +1,125 @@
-# 🏠 House Price Prediction Using Machine Learning
+# 🏠 House Price Prediction with Decision Tree and Random Forest
 
-This project aims to predict housing prices using supervised learning techniques like **Decision Tree** and **Random Forest** from the popular Ames Housing Dataset. It's inspired by the [Kaggle competition](https://www.kaggle.com/competitions/home-data-for-ml-course).
-
----
-
-## 📁 Files Included
-
-| File                         | Description                                        |
-|------------------------------|----------------------------------------------------|
-| `house_price_prediction.py`  | Python script containing the DecisionTreeRegressor |
-                               |  & RandomForestRegressor                           |
-| `.gitignore`                 | Ignores datasets and virtual environment           |
-| `README.md`                  | Project explanation and documentation              |
-| `submission.csv`             | Final predictions (not uploaded by default)        |
+This project predicts house sale prices using supervised regression models on the **Ames Housing Dataset**. It uses **Decision Tree** and **Random Forest** models, evaluates them using **Mean Absolute Error (MAE)**, and produces a submission file similar to a Kaggle competition.
 
 ---
 
-## 📊 Dataset
+## 📂 Project Structure
 
-We use the `train.csv` and `test.csv` from the Ames Housing Dataset (from Kaggle).  
-Note: These are **not included** in the repo. Download from:  
-🔗 [https://www.kaggle.com/competitions/home-data-for-ml-course](https://www.kaggle.com/competitions/home-data-for-ml-course)
-
-### ✅ Features Used:
-
-- `LotArea`: Lot size in square feet  
-- `YearBuilt`: Year of original construction  
-- `1stFlrSF`: First floor square feet  
-- `2ndFlrSF`: Second floor square feet  
-- `FullBath`: Full bathrooms above grade  
-- `BedroomAbvGr`: Bedrooms above grade  
-- `TotRmsAbvGrd`: Total rooms above grade  
-
-### 🎯 Target:
-- `SalePrice`: The property's sale price in USD
+| File                     | Description                                      |
+|--------------------------|--------------------------------------------------|
+| `house_price_prediction.py` | Main script for training and predicting prices |
+| `submission.csv`         | Final predicted prices (output file, optional)  |
+| `train.csv` & `test.csv` | Dataset files (downloaded from Kaggle manually) |
+| `.gitignore`             | Prevents large or unnecessary files from uploading |
 
 ---
 
-## 🚀 Project Workflow
+## 🧠 Project Objectives
 
-### 1️⃣ Import Libraries  
-Includes `pandas`, `sklearn` modules for modeling and evaluation.
-
-### 2️⃣ Load and Explore Data  
-Reads training data, prints `.describe()` and `.head()`.
-
-### 3️⃣ Feature Selection  
-Picks relevant numerical features for initial modeling.
-
-### 4️⃣ Train a Basic Decision Tree  
-Fits a `DecisionTreeRegressor` and evaluates performance.
-
-### 5️⃣ Train-Validation Split  
-Uses `train_test_split` to simulate unseen data evaluation.
-
-### 6️⃣ MAE Evaluation  
-Calculates **Mean Absolute Error (MAE)** on validation set.
-
-### 7️⃣ Hyperparameter Tuning  
-Finds the best `max_leaf_nodes` to reduce overfitting.
-
-### 8️⃣ Random Forest Model  
-Trains `RandomForestRegressor` for improved performance.
-
-### 9️⃣ Load Test Data & Predict  
-Predicts prices for test data using the final model.
-
-### 🔟 Save Submission File  
-Writes predictions to `submission.csv` for Kaggle or further use.
+- 📌 Predict housing prices using selected features
+- 🧪 Train and evaluate multiple models
+- 📉 Compare performance using MAE
+- 🧾 Generate predictions for unseen test data
+- 📝 Save results in CSV format for submission
 
 ---
 
-## 📉 Model Evaluation
+## 📊 Dataset Description
 
-- **Metric Used:** Mean Absolute Error (MAE)
-- **Models Compared:**  
-  - `DecisionTreeRegressor`  
-  - `RandomForestRegressor`
+The data comes from the Kaggle competition:  
+🔗 [Home Prices: Advanced Regression Techniques](https://www.kaggle.com/competitions/home-data-for-ml-course)
 
----
+### Features Used:
+- `LotArea`: Lot size in square feet
+- `YearBuilt`: Original construction year
+- `1stFlrSF`: First floor square footage
+- `2ndFlrSF`: Second floor square footage
+- `FullBath`: Number of full bathrooms
+- `BedroomAbvGr`: Bedrooms above ground level
+- `TotRmsAbvGrd`: Total rooms above ground
 
-## 🧰 Tools & Technologies
-
-- Python 3.10+
--  VS Code
-- Libraries:
-  - pandas
-  - scikit-learn (sklearn)
-  - matplotlib (optional for visualization)
-
----
-
-## 💡 Future Improvements
-
-- Handle missing values properly (e.g., using SimpleImputer)
-- Add categorical features using OneHotEncoding
-- Visualize feature importance
-- Create a scikit-learn Pipeline
-- Use GridSearchCV for hyperparameter tuning
-- Deploy with Flask or Streamlit (for web app)
+### Target:
+- `SalePrice`: House sale price in USD
 
 ---
 
-## 🙋 Author
+## 🚀 Workflow Summary
+
+### 📦 1. Import Required Libraries
+Libraries like `pandas`, `sklearn` are used for data handling, model building, and evaluation.
+
+### 📥 2. Load & Explore Data
+The training data is loaded and summarized using `.describe()` and `.head()`.
+
+### 🎯 3. Select Features and Target
+Key numerical features are selected for modeling. The target is `SalePrice`.
+
+### 🌳 4. Train Basic Decision Tree
+A simple `DecisionTreeRegressor` is trained on the full dataset.
+
+### ✂️ 5. Split Data for Validation
+The dataset is split into training and validation subsets.
+
+### 🔍 6. Tune Tree with Best Leaf Nodes
+MAE is computed for various `max_leaf_nodes` values to find the best-performing tree size.
+
+### 🌲 7. Train Random Forest Regressor
+A `RandomForestRegressor` is trained and evaluated on the same data.
+
+### 🧪 8. Predict on Test Data
+Test set predictions are generated using the trained Decision Tree model.
+
+### 📤 9. Export Final Predictions
+Predictions are saved to `submission.csv`, formatted for Kaggle-style evaluation.
+
+---
+
+## 📉 Model Performance (Example)
+
+| Model              | MAE (on Validation Set) |
+|--------------------|-------------------------|
+| Decision Tree      | ~28,000+ (varies)       |
+| Random Forest      | ✅ Lower MAE (~18,000–22,000) |
+
+---
+
+## 🛠 Tech Stack
+
+- **Language**: Python 3.x
+- **Libraries**:  
+  - `pandas` – data manipulation  
+  - `scikit-learn` – models & evaluation  
+- **Editor**: Jupyter  
+- **Environment**: Local 
+
+---
+
+## 📦 Future Improvements
+
+- ✅ Add missing value handling
+- ✅ Use pipelines for clean preprocessing
+- ✅ Add categorical feature encoding
+- ✅ Visualize feature importances
+- ✅ Improve final model (RandomForest instead of DecisionTree)
+
+---
+
+## 🙋 About the Author
 
 **👨 Vishnu Bishnoi**  
+📍 Aspiring Data Scientist | Python, ML, SQL  
 📫 [LinkedIn](https://www.linkedin.com/in/vishnu-bishnoi-261832230/)  
-📁 [GitHub](https://github.com/vishnubishnoi263)  
-
+📁 [GitHub](https://github.com/vishnubishnoi263)
 
 ---
 
-## ⭐ Support
+## ⭐ Support This Project
 
-If you found this project helpful:
+If you find this useful:
 - ⭐ Star this repo
 - 🔁 Fork it
-- 🧑‍💼 Connect on LinkedIn
-- 🧠 Reach out for collaboration or feedback
+- 🧠 Connect with me for feedback or collaboration
+
+
 
